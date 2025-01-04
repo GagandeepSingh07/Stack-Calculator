@@ -14,88 +14,36 @@
     --border-color: #444;
   }
 
+
   body {
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
+    /* background-color: brown; */
     margin: 0;
     padding: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
 
-  .container {
+  .toggle-holder {
+    /* background-color: blueviolet; */
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: var(--card-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  label {
-    font-size: 0.9em;
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  input[type="text"], .output {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-
-  input[type="radio"] {
-    margin-right: 10px;
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .whitespace {
-    width: 20px;
-    color: white;
-  }
-
-  button:hover {
-    background-color: #4834d4;
-  }
-
-  .actions {
+    height: auto;
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: right;
+    align-items: center;
   }
 
   .toggle-theme {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    /* position: absolute; */
+    display: flex;
+    padding-top: 15px;
+    margin-right: 15px;
+    /* top: 15px;
+    right: 20px; */
     background: none;
     border: none;
     font-size: 1em;
@@ -105,4 +53,23 @@
 
   .toggle-theme:focus {
     outline: none;
+  }
+
+  .container-holder {
+    /* position: relative; */
+    background-color: crimson;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--card-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }

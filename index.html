@@ -7,10 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
-  <div class="container">
-    <h1>Minecraft Stack Calculator</h1>
-    <div class="form-group">
+
+  <div class="parent">
+
+    <div class="toggle-holder">
+      <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <div class="container-holder">
+      <div class="container">
+
+    <!-- <h1>Minecraft Stack Calculator</h1> -->
+      <!-- <div class="form-group">
       <label>Maximum stack size:</label>
       <label><input type="radio" name="stackSize" value="64" checked> 64 items</label>
       <label><input type="radio" name="stackSize" value="16"> 16 items</label>
@@ -32,9 +40,11 @@
       <button onclick="window.location.reload()">Reload calculator</button>
       <div class="whitespace"></div>
       <button onclick="clearFields()">Clear all</button>
+    </div> -->
+
+  </div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
