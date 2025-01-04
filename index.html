@@ -1,63 +1,148 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Item to Stack Calculator</title>
+  <title>Minecraft Stack Calculator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f7fa;
+    }
+    .calculator {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+    }
+    .calculator h1 {
       text-align: center;
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
     }
-    input, button {
+    .calculator label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .calculator input[type="number"],
+    .calculator .output {
+      width: 100%;
       padding: 10px;
-      margin: 5px;
-      font-size: 16px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      background-color: #f9f9f9;
     }
-    .result {
+    .calculator .output {
+      background-color: #e9ecef;
+      color: #6c757d;
+    }
+    .calculator .radio-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .calculator .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .calculator button:hover {
+      background-color: #0056b3;
+    }
+    .calculator .footer {
+      display: flex;
+      justify-content: space-between;
       margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
+    }
+    .calculator .footer button {
+      background-color: #6c757d;
+    }
+    .calculator .footer button:hover {
+      background-color: #5a6268;
+    }
+    @media (max-width: 480px) {
+      .calculator {
+        padding: 15px;
+      }
+      .calculator h1 {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="calculator">
+    <h1>Minecraft Stack Calculator</h1>
+    <div>
+      <label>Maximum stack size:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="stackSize" value="64" checked> 64 items</label>
+        <label><input type="radio" name="stackSize" value="16"> 16 items</label>
+      </div>
+    </div>
+    <div>
+      <label for="totalItems">Total items:</label>
+      <input type="number" id="totalItems" placeholder="Enter total items">
+    </div>
+    <div>
+      <label for="fullStacks">Full stacks:</label>
+      <input type="text" id="fullStacks" class="output" readonly>
+    </div>
+    <div>
+      <label for="overflowItems">Semi-full stack:</label>
+      <input type="text" id="overflowItems" class="output" readonly>
+    </div>
+    <button onclick="calculateStacks()">Calculate</button>
+    <div class="footer">
+      <button onclick="shareResult()">Share result</button>
+      <button onclick="location.reload()">Reload calculator</button>
+    </div>
+  </div>
 
-  <div>
-    <h1>Item to Stack Calculator</h1>
-  <div>
-    <label>Items per Stack:</label>
-    <label><input type="radio" name="stackSize" value="64" checked> 64</label>
-    <label><input type="radio" name="stackSize" value="16"> 16</label>
-  </div>
-  <div>
-    <label for="totalItems">Total Items:</label>
-    <input type="number" id="totalItems" placeholder="Enter total items" min="1">
-  </div>
-  <button onclick="calculateStacks()">Calculate</button>
-  <div class="result" id="result"></div>
-  </div>
-  
   <script>
     function calculateStacks() {
-  const totalItems = parseInt(document.getElementById('totalItems').value);
-  const stackSize = parseInt(document.querySelector('input[name="stackSize"]:checked').value);
+      const totalItems = parseInt(document.getElementById('totalItems').value);
+      const stackSize = parseInt(document.querySelector('input[name="stackSize"]:checked').value);
 
-  if (isNaN(totalItems) || isNaN(stackSize) || totalItems < 0 || stackSize <= 0) {
-    document.getElementById('result').innerText = 'Please enter valid numbers.';
-    return;
-  }
+      if (isNaN(totalItems) || totalItems < 0) {
+        alert('Please enter a valid number of total items.');
+        return;
+      }
 
-  const stacks = Math.floor(totalItems / stackSize);
-  const overflow = totalItems % stackSize;
+      const stacks = Math.floor(totalItems / stackSize);
+      const overflow = totalItems % stackSize;
 
-      // document.getElementById('result').innerText = 
-      //   `Stacks: ${stacks}, Overflow Items: ${overflow}`;
-      document.getElementById('result').innerText = 
-        `${stacks} Stack(s) + ${overflow} Item(s)`;
+      document.getElementById('fullStacks').value = `${stacks} stacks`;
+      document.getElementById('overflowItems').value = `${overflow} items`;
+    }
+
+    function shareResult() {
+      alert('This feature is not implemented yet.');
     }
   </script>
-</body>
 </body>
 </html>
