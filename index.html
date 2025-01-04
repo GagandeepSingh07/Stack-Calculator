@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item to Stack Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1>Item to Stack Calculator</h1>
+  <div>
+    <label>Items per Stack:</label>
+    <label><input type="radio" name="stackSize" value="64" checked> 64</label>
+    <label><input type="radio" name="stackSize" value="16"> 16</label>
+  </div>
+  <div>
+    <label for="totalItems">Total Items:</label>
+    <input type="number" id="totalItems" placeholder="Enter total items" min="1">
+  </div>
+  <button onclick="calculateStacks()">Calculate</button>
+  <div class="result" id="result"></div>
+  </div>
+  
+  <script>
+    function calculateStacks() {
+  const totalItems = parseInt(document.getElementById('totalItems').value);
+  const stackSize = parseInt(document.querySelector('input[name="stackSize"]:checked').value);
+
+  if (isNaN(totalItems) || isNaN(stackSize) || totalItems < 0 || stackSize <= 0) {
+    document.getElementById('result').innerText = 'Please enter valid numbers.';
+    return;
+  }
+
+  const stacks = Math.floor(totalItems / stackSize);
+  const overflow = totalItems % stackSize;
+
+      // document.getElementById('result').innerText = 
+      //   `Stacks: ${stacks}, Overflow Items: ${overflow}`;
+      document.getElementById('result').innerText = 
+        `${stacks} Stack(s) + ${overflow} Item(s)`;
+    }
+  </script>
+</body>
+</body>
+</html>
