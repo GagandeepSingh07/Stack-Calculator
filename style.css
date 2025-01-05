@@ -14,33 +14,50 @@
     --border-color: #444;
   }
 
-
   body {
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    /* background-color: brown; */
     margin: 0;
     padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    /* background-color: brown; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+  /* body .parent .container-holder {
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  .parent {
+    position: relative;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .toggle-holder {
+    z-index: 99;
     /* background-color: blueviolet; */
-    width: 100%;
+    position: absolute;
+    /* width: 100%; */
+    top: 8px;
+    right: 0;
     height: auto;
     display: flex;
     justify-content: right;
     align-items: center;
   }
-
   .toggle-theme {
     /* position: absolute; */
     display: flex;
-    padding-top: 15px;
+    padding-top: 10px;
     margin-right: 15px;
     /* top: 15px;
     right: 20px; */
@@ -50,21 +67,20 @@
     cursor: pointer;
     color: var(--primary-color);
   }
-
   .toggle-theme:focus {
     outline: none;
   }
-
   .container-holder {
-    /* position: relative; */
-    background-color: crimson;
-    width: 100%;
+    /* background-color: crimson; */
+    width: auto;
     height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50);
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .container {
     width: 100%;
     max-width: 400px;
@@ -72,4 +88,61 @@
     border-radius: 10px;
     background-color: var(--card-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  label {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"], .output {
+    width: 92%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  input::placeholder {
+    font-size: 12px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #4834d4;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .whitespace {
+    width: 10%;
+    color: white;
+  }
+
+  @media(max-width:370px) {
+    .container{
+      scale: 90%;
+    }
   }

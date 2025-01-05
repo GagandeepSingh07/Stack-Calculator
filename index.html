@@ -8,20 +8,19 @@
 </head>
 <body>
 
+  <div class="toggle-holder">
+    <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
+  </div>
+
   <div class="parent">
-
-    <div class="toggle-holder">
-      <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
-    </div>
-
     <div class="container-holder">
       <div class="container">
 
-    <!-- <h1>Minecraft Stack Calculator</h1> -->
-      <!-- <div class="form-group">
+    <h1>Minecraft Stack Calculator</h1>
+      <div class="form-group">
       <label>Maximum stack size:</label>
-      <label><input type="radio" name="stackSize" value="64" checked> 64 items</label>
-      <label><input type="radio" name="stackSize" value="16"> 16 items</label>
+      <label><input type="radio" name="stackSize" value="64" checked>64 items</label>
+      <label><input type="radio" name="stackSize" value="16">16 items</label>
     </div>
     <div class="form-group">
       <label for="totalItems">Total items:</label>
@@ -32,7 +31,7 @@
       <input type="text" id="fullStacks" class="output" readonly>
     </div>
     <div class="form-group">
-      <label for="overflowItems">Semi-full stack:</label>
+      <label for="overflowItems">Remaining Items:</label>
       <input type="text" id="overflowItems" class="output" readonly>
     </div>
     <button onclick="calculateStacks()">Calculate</button>
@@ -40,7 +39,7 @@
       <button onclick="window.location.reload()">Reload calculator</button>
       <div class="whitespace"></div>
       <button onclick="clearFields()">Clear all</button>
-    </div> -->
+    </div>
 
   </div>
     </div>
