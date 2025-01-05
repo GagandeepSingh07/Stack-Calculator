@@ -24,7 +24,12 @@ function calculateStacks() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
-  }
+
+    // Change the button icon
+    const toggleButton = document.querySelector('.toggle-theme');
+    toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+}
+
 
   // Set default theme to light
   document.documentElement.setAttribute('data-theme', 'light');
